@@ -1,38 +1,14 @@
 ---
-title: Hello World
+title: GUETSEC-wiki 社团知识库新人必看
+sticky: 1
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+1.GUETSEC知识库仅用于内部技术交流学习，只能社团网访问。
 
-### Create a new post
+2.尽量发表有质量的文章，能合成一篇文章来发的尽量合成一篇文章来发，确保文章质量，注意文章分类。
 
-``` bash
-$ hexo new "My New Post"
-```
+3.可以写知识库中已经重复写过的文章，可以复现网络上已有的文章，但要求是作者本人书写，请勿直接搬运。
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+4.鼓励信息安全协会成员多发文章，对文章格式不作要求，对文章主题不作要求，尽量为与技术相关文章。
 
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+5.还没想到，想到什么再补充。
