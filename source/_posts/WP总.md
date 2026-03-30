@@ -1,4 +1,21 @@
-
+---
+title: <% tp.file.title %>
+author: Yunxi
+date: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
+updated: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
+tags:
+  - CTF
+  - Web
+  - CTFshow
+  - 菜狗杯
+categories:
+  - CTF
+  - Web
+  - CTFshow
+  - 菜狗杯
+description: CTFshow菜狗杯的WriteUp
+toc: true
+---
 #拼接字符串
 # 我的眼里只有钱
 
