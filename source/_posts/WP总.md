@@ -1,8 +1,7 @@
 ---
-title: <% tp.file.title %>
+title: 菜狗杯WP
 author: Yunxi
-date: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
-updated: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
+
 tags:
   - CTF
   - Web
