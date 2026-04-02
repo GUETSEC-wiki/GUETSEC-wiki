@@ -18,4 +18,6 @@ hexo框架，把markdown文件放到GUETSEC-wiki\source\_posts文件夹
 每次push都会自动build然后生成网页到wiki.guetsec.cn，每次push前建议用npm 先本地部署一下看看
 文章在哪里都能发，访问网页只能在社团，访问wiki.guetsec.cn，如果不在社团想看效果可以本地run server看
 图片的话自己弄一个外部图床，别直接跟着文章传过来
-或者base64直接写在md文件里也行，就是清晰度不咋地
+- 图床说明
+      使用Github外部图床，格式->`![](https://raw.githubusercontent.com/$(Github_UserName)/$(New repository_name)/refs/heads/main/$(FileName).png)`
+ico等小图片base64直接写在md文件里也行，就是清晰度不咋地
