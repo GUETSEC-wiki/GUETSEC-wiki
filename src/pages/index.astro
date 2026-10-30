@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0),
+);
+const latest = posts.slice(0, 5);
+const fmt = (d?: Date) =>
+  d ? d.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }) : '';
+---
+
+<PageLayout title="GUETSEC Wiki">
+  <section class="mb-12">
+    <div class="flex items-center gap-4">
+      <img src="/images/avatar.png" alt="GUETSEC" class="h-16 w-16 rounded-full border border-[var(--border)]" />
+      <div>
+        <h1 class="text-3xl font-bold">GUETSEC Wiki</h1>
+        <p class="mt-1 text-[var(--text-muted)]">CTF WriteUps · 安全技术笔记</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="mb-5 text-xl font-semibold">最新文章</h2>
+    <ul class="space-y-4">
+      {
+        latest.map((post) => (
+          <li class="flex items-baseline justify-between gap-4 border-b border-[var(--border)] pb-3">
+            <a href={`/posts/${post.id}/`} class="font-medium hover:text-[var(--accent)]">
+              {post.data.title}
+            </a>
+            <span class="shrink-0 text-xs text-[var(--text-muted)]">{fmt(post.data.date)}</span>
+          </li>
+        ))
+      }
+    </ul>
+    {
+      posts.length > 5 && (
+        <p class="mt-5 text-sm">
+          <a href="/posts/" class="text-[var(--accent)] hover:underline">查看全部文章 →</a>
+        </p>
+      )
+    }
+  </section>
+</PageLayout>

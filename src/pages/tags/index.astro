@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+const tagCounts = new Map<string, number>();
+for (const p of posts) for (const t of p.data.tags) tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1);
+const tags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<PageLayout title="标签 · GUETSEC Wiki">
+  <h1 class="mb-8 text-3xl font-bold">标签</h1>
+  <div class="flex flex-wrap gap-3">
+    {
+      tags.map(([tag, count]) => (
+        <a
+          href={`/tags/${encodeURIComponent(tag)}/`}
+          class="rounded-full border border-[var(--border)] bg-[var(--bg-soft)] px-3.5 py-1.5 text-sm hover:border-[var(--accent)] hover:text-[var(--accent)]"
+        >
+          {tag} <span class="text-xs text-[var(--text-muted)]">{count}</span>
+        </a>
+      ))
+    }
+  </div>
+</PageLayout>

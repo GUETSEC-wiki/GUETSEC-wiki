@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+const catCounts = new Map<string, number>();
+for (const p of posts) for (const c of p.data.categories) catCounts.set(c, (catCounts.get(c) ?? 0) + 1);
+const categories = [...catCounts.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<PageLayout title="分类 · GUETSEC Wiki">
+  <h1 class="mb-8 text-3xl font-bold">分类</h1>
+  <div class="flex flex-wrap gap-3">
+    {
+      categories.map(([category, count]) => (
+        <a
+          href={`/categories/${encodeURIComponent(category)}/`}
+          class="rounded-full border border-[var(--border)] bg-[var(--bg-soft)] px-3.5 py-1.5 text-sm hover:border-[var(--accent)] hover:text-[var(--accent)]"
+        >
+          {category} <span class="text-xs text-[var(--text-muted)]">{count}</span>
+        </a>
+      ))
+    }
+  </div>
+</PageLayout>

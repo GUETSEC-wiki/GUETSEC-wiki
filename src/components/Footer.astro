@@ -1,0 +1,22 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-[var(--border)]">
+  <div
+    class="mx-auto flex w-full max-w-3xl flex-col items-center gap-1 px-4 py-6 text-sm text-[var(--text-muted)]"
+  >
+    <p>© {year} GUETSEC · Powered by Astro</p>
+    <p>
+      <a
+        href="https://github.com/GUETSEC-wiki"
+        target="_blank"
+        rel="noopener"
+        class="hover:text-[var(--accent)]"
+        >GitHub</a
+      >
+      <span class="mx-1.5">·</span>
+      <a href="/rss.xml" class="hover:text-[var(--accent)]">RSS</a>
+    </p>
+  </div>
+</footer>
