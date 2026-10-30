@@ -17,6 +17,7 @@ const site = Astro.site ?? new URL('https://wiki.guetsec.cn');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="dark" />
     <link rel="icon" type="image/png" href="/images/avatar.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link
@@ -26,21 +27,9 @@ const site = Astro.site ?? new URL('https://wiki.guetsec.cn');
       href={new URL('rss.xml', site)}
     />
     <title>{title}</title>
-    <script is:inline>
-      const theme =
-        localStorage.getItem('theme') ??
-        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.classList.toggle('dark', theme === 'dark');
-    </script>
   </head>
   <body class="min-h-screen flex flex-col">
+    <div class="sitebg" aria-hidden="true"></div>
     <slot />
-    <script>
-      const btn = document.getElementById('theme-toggle');
-      btn?.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
-    </script>
   </body>
 </html>

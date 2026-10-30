@@ -1,31 +1,36 @@
 @import 'tailwindcss';
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 :root {
-  --bg: #ffffff;
-  --bg-soft: #f6f8fa;
-  --border: #e2e8f0;
-  --text: #1a202c;
-  --text-muted: #64748b;
-  --accent: #2563eb;
-  --accent-soft: #dbeafe;
-}
+  /* stellar 主题色还原 */
+  --hue: 210;
+  --theme: hsl(192 98% 55%);
+  --theme-a10: hsl(192 98% 55% / 0.1);
+  --theme-a20: hsl(192 98% 55% / 0.2);
+  --accent: hsl(14 100% 57%);
+  --link: hsl(207 90% 54%);
+  --link-a20: hsl(207 90% 54% / 0.2);
 
-.dark {
-  --bg: #0d1117;
-  --bg-soft: #161b22;
-  --border: #30363d;
-  --text: #e6edf3;
-  --text-muted: #8b949e;
-  --accent: #58a6ff;
-  --accent-soft: #1e3a5f;
+  /* 深色模式（仅深色） */
+  --background: hsl(210 8% 12%);
+  --card: hsl(210 10% 24% / 0.55);
+  --card-solid: hsl(210 10% 20%);
+  --border: hsl(210 24% 72% / 0.08);
+  --border-strong: hsl(210 24% 72% / 0.16);
+  --text: hsl(210 0% 100%);
+  --text-p1: hsl(210 0% 100% / 0.8);
+  --text-p2: hsl(210 0% 100% / 0.7);
+  --text-p3: hsl(210 0% 100% / 0.5);
+  --text-p4: hsl(210 0% 100% / 0.4);
+  --text-muted: var(--text-p2);
+  --block: hsl(210 24% 72% / 0.08);
+  --block-border: hsl(210 24% 72% / 0.12);
+  --bg-a75: hsl(210 0% 0% / 0.75);
 }
 
 html {
-  background: var(--bg);
+  background: var(--background);
   color: var(--text);
-  color-scheme: light dark;
+  color-scheme: dark;
 }
 
 body {
@@ -33,49 +38,89 @@ body {
     'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
 }
 
-/* 文章排版 */
+/* ---------- 类亚克力渐变背景 ---------- */
+.sitebg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-color: var(--background);
+  /* 深色系多彩渐变（对应原 leftbar 渐变图 + 高饱和模糊的观感） */
+  background-image:
+    radial-gradient(ellipse 80% 60% at 15% 10%, hsl(192 98% 40% / 0.28), transparent 60%),
+    radial-gradient(ellipse 70% 55% at 85% 15%, hsl(258 85% 55% / 0.22), transparent 60%),
+    radial-gradient(ellipse 90% 65% at 70% 90%, hsl(14 100% 50% / 0.14), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 25% 85%, hsl(207 90% 50% / 0.18), transparent 65%),
+    linear-gradient(160deg, hsl(210 30% 16%), hsl(222 35% 10%));
+  background-size: cover;
+}
+
+/* 亚克力磨砂层：高斯模糊 + 高饱和 */
+.sitebg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: saturate(300%);
+  -webkit-backdrop-filter: saturate(300%);
+}
+
+/* ---------- 亚克力卡片 ---------- */
+.acrylic {
+  background-color: hsl(210 10% 24% / 0.45);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid hsl(210 0% 100% / 0.08);
+  box-shadow: 0 4px 24px hsl(210 0% 0% / 0.25);
+}
+
+/* ---------- 文章排版 ---------- */
 .prose-post {
   line-height: 1.8;
+  color: var(--text-p1);
 }
 .prose-post h1,
 .prose-post h2,
 .prose-post h3,
 .prose-post h4 {
+  color: var(--text);
   font-weight: 700;
   margin: 1.6em 0 0.6em;
   line-height: 1.3;
 }
-.prose-post h1 { font-size: 1.6rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3em; }
+.prose-post h1 { font-size: 1.6rem; border-bottom: 1px solid var(--block-border); padding-bottom: 0.3em; }
 .prose-post h2 { font-size: 1.35rem; }
 .prose-post h3 { font-size: 1.15rem; }
 .prose-post p { margin: 0.9em 0; }
-.prose-post a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.prose-post a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+.prose-post a:hover { color: var(--accent); }
 .prose-post ul, .prose-post ol { margin: 0.9em 0; padding-left: 1.6em; }
 .prose-post ul { list-style: disc; }
 .prose-post ol { list-style: decimal; }
 .prose-post li { margin: 0.3em 0; }
+.prose-post li::marker { color: var(--text-p4); }
+.prose-post strong { color: var(--text); }
 .prose-post blockquote {
   margin: 1em 0;
   padding: 0.4em 1em;
-  border-left: 4px solid var(--accent);
-  background: var(--bg-soft);
-  color: var(--text-muted);
+  border-left: 4px solid var(--theme);
+  background: var(--block);
+  color: var(--text-p2);
   border-radius: 0 8px 8px 0;
 }
 .prose-post code {
   font-family: ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace;
   font-size: 0.875em;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
+  background: var(--block);
+  border: 1px solid var(--block-border);
   border-radius: 4px;
   padding: 0.15em 0.4em;
+  color: hsl(20 75% 60%);
 }
 .prose-post pre {
   margin: 1.1em 0;
   padding: 1em 1.2em;
   border-radius: 10px;
   overflow-x: auto;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   font-size: 0.875rem;
   line-height: 1.6;
 }
@@ -84,6 +129,7 @@ body {
   border: none;
   padding: 0;
   font-size: inherit;
+  color: inherit;
 }
 .prose-post img {
   max-width: 100%;
@@ -97,29 +143,23 @@ body {
   font-size: 0.9rem;
 }
 .prose-post th, .prose-post td {
-  border: 1px solid var(--border);
+  border: 1px solid var(--block-border);
   padding: 0.5em 0.8em;
   text-align: left;
 }
-.prose-post th { background: var(--bg-soft); }
+.prose-post th { background: var(--block); }
+.prose-post tr { border-bottom: 1px dashed var(--block-border); }
 .prose-post hr {
   border: none;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--block-border);
   margin: 2em 0;
 }
 
-/* Shiki 双主题 */
+/* ---------- Shiki 双主题 → 锁定深色 ---------- */
 .astro-code,
 .astro-code span {
-  color: var(--shiki-light) !important;
-  background-color: var(--shiki-light-bg) !important;
-  font-style: var(--shiki-light-font-style) !important;
-  font-weight: var(--shiki-light-font-weight) !important;
-}
-.dark .astro-code,
-.dark .astro-code span {
   color: var(--shiki-dark) !important;
-  background-color: var(--shiki-dark-bg) !important;
+  background-color: transparent !important;
   font-style: var(--shiki-dark-font-style) !important;
   font-weight: var(--shiki-dark-font-weight) !important;
 }

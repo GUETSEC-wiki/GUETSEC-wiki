@@ -2,9 +2,9 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[var(--border)]">
+<footer class="acrylic border-x-0 border-b-0">
   <div
-    class="mx-auto flex w-full max-w-3xl flex-col items-center gap-1 px-4 py-6 text-sm text-[var(--text-muted)]"
+    class="mx-auto flex w-full max-w-3xl flex-col items-center gap-1 px-4 py-6 text-sm text-[var(--text-p3)]"
   >
     <p>© {year} GUETSEC · Powered by Astro</p>
     <p>
@@ -12,11 +12,11 @@ const year = new Date().getFullYear();
         href="https://github.com/GUETSEC-wiki"
         target="_blank"
         rel="noopener"
-        class="hover:text-[var(--accent)]"
+        class="hover:text-[var(--theme)]"
         >GitHub</a
       >
       <span class="mx-1.5">·</span>
-      <a href="/rss.xml" class="hover:text-[var(--accent)]">RSS</a>
+      <a href="/rss.xml" class="hover:text-[var(--theme)]">RSS</a>
     </p>
   </div>
 </footer>

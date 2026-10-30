@@ -16,13 +16,13 @@ const fmt = (d?: Date) =>
       posts.map((post) => (
         <li>
           <a href={`/posts/${post.id}/`} class="group block">
-            <h2 class="text-xl font-semibold group-hover:text-[var(--accent)]">
+            <h2 class="text-xl font-semibold group-hover:text-[var(--theme)]">
               {post.data.title}
             </h2>
-            <p class="mt-1 text-sm text-[var(--text-muted)]">
+            <p class="mt-1 text-sm text-[var(--text-p3)]">
               {post.data.description ?? ''}
             </p>
-            <p class="mt-1 text-xs text-[var(--text-muted)]">
+            <p class="mt-1 text-xs text-[var(--text-p3)]">
               {fmt(post.data.date)}
               {post.data.tags.length > 0 && ` · ${post.data.tags.map((t) => `#${t}`).join(' ')}`}
             </p>

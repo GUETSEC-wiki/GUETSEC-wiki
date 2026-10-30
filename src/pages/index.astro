@@ -12,11 +12,11 @@ const fmt = (d?: Date) =>
 
 <PageLayout title="GUETSEC Wiki">
   <section class="mb-12">
-    <div class="flex items-center gap-4">
-      <img src="/images/avatar.png" alt="GUETSEC" class="h-16 w-16 rounded-full border border-[var(--border)]" />
+    <div class="acrylic rounded-2xl p-6 flex items-center gap-4">
+      <img src="/images/avatar.png" alt="GUETSEC" class="h-16 w-16 rounded-full border border-[var(--block-border)]" />
       <div>
         <h1 class="text-3xl font-bold">GUETSEC Wiki</h1>
-        <p class="mt-1 text-[var(--text-muted)]">CTF WriteUps · 安全技术笔记</p>
+        <p class="mt-1 text-[var(--text-p3)]">CTF WriteUps · 安全技术笔记</p>
       </div>
     </div>
   </section>
@@ -26,11 +26,11 @@ const fmt = (d?: Date) =>
     <ul class="space-y-4">
       {
         latest.map((post) => (
-          <li class="flex items-baseline justify-between gap-4 border-b border-[var(--border)] pb-3">
-            <a href={`/posts/${post.id}/`} class="font-medium hover:text-[var(--accent)]">
+          <li class="flex items-baseline justify-between gap-4 border-b border-[var(--block-border)] pb-3">
+            <a href={`/posts/${post.id}/`} class="font-medium hover:text-[var(--theme)]">
               {post.data.title}
             </a>
-            <span class="shrink-0 text-xs text-[var(--text-muted)]">{fmt(post.data.date)}</span>
+            <span class="shrink-0 text-xs text-[var(--text-p3)]">{fmt(post.data.date)}</span>
           </li>
         ))
       }
@@ -38,7 +38,7 @@ const fmt = (d?: Date) =>
     {
       posts.length > 5 && (
         <p class="mt-5 text-sm">
-          <a href="/posts/" class="text-[var(--accent)] hover:underline">查看全部文章 →</a>
+          <a href="/posts/" class="text-[var(--theme)] hover:underline">查看全部文章 →</a>
         </p>
       )
     }

@@ -18,16 +18,16 @@ const fmt = (d?: Date) =>
 ---
 
 <PageLayout title="归档 · GUETSEC Wiki">
-  <h1 class="mb-8 text-3xl font-bold">归档 <span class="text-sm font-normal text-[var(--text-muted)]">共 {posts.length} 篇</span></h1>
+  <h1 class="mb-8 text-3xl font-bold">归档 <span class="text-sm font-normal text-[var(--text-p3)]">共 {posts.length} 篇</span></h1>
   {
     years.map((year) => (
       <section class="mb-10">
-        <h2 class="mb-4 text-xl font-semibold text-[var(--accent)]">{year || '未标注日期'}</h2>
+        <h2 class="mb-4 text-xl font-semibold text-[var(--theme)]">{year || '未标注日期'}</h2>
         <ul class="space-y-3">
           {byYear.get(year)!.map((post) => (
             <li class="flex items-baseline gap-4">
-              <span class="shrink-0 text-xs text-[var(--text-muted)] tabular-nums">{fmt(post.data.date)}</span>
-              <a href={`/posts/${post.id}/`} class="hover:text-[var(--accent)]">{post.data.title}</a>
+              <span class="shrink-0 text-xs text-[var(--text-p3)] tabular-nums">{fmt(post.data.date)}</span>
+              <a href={`/posts/${post.id}/`} class="hover:text-[var(--theme)]">{post.data.title}</a>
             </li>
           ))}
         </ul>

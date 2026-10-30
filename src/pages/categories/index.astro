@@ -15,9 +15,9 @@ const categories = [...catCounts.entries()].sort((a, b) => b[1] - a[1]);
       categories.map(([category, count]) => (
         <a
           href={`/categories/${encodeURIComponent(category)}/`}
-          class="rounded-full border border-[var(--border)] bg-[var(--bg-soft)] px-3.5 py-1.5 text-sm hover:border-[var(--accent)] hover:text-[var(--accent)]"
+          class="rounded-full border border-[var(--block-border)] bg-[var(--block)] px-3.5 py-1.5 text-sm hover:border-[var(--theme)] hover:text-[var(--theme)]"
         >
-          {category} <span class="text-xs text-[var(--text-muted)]">{count}</span>
+          {category} <span class="text-xs text-[var(--text-p3)]">{count}</span>
         </a>
       ))
     }
