@@ -7,6 +7,8 @@ const posts = defineCollection({
     title: z.string(),
     author: z.string().default('GUETSEC'),
     description: z.string().optional(),
+    /** 首页瀑布流封面图：站内路径（/images/xx.webp）或图床直链；留空则渲染纯文字卡 */
+    cover: z.string().optional(),
     date: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
     categories: z.array(z.string()).default([]),

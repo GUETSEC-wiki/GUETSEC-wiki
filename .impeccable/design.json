@@ -1,0 +1,563 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-03T14:54:54+08:00",
+  "title": "Design System: GUETSEC Wiki",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "hsl(210 14% 7%)",
+        "tonalRamp": [
+          "hsl(210 14% 4%)",
+          "hsl(210 14% 7%)",
+          "hsl(210 14% 10%)",
+          "hsl(210 13% 14%)",
+          "hsl(210 12% 20%)",
+          "hsl(210 11% 32%)",
+          "hsl(210 12% 58%)",
+          "hsl(210 14% 92%)"
+        ]
+      },
+      "chrome": {
+        "role": "neutral",
+        "displayName": "Chrome",
+        "canonical": "hsl(210 14% 8%)",
+        "tonalRamp": [
+          "hsl(210 14% 5%)",
+          "hsl(210 14% 8%)",
+          "hsl(210 14% 11%)",
+          "hsl(210 13% 15%)",
+          "hsl(210 12% 22%)",
+          "hsl(210 11% 34%)",
+          "hsl(210 12% 60%)",
+          "hsl(210 14% 93%)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Smoked Surface",
+        "canonical": "hsl(210 14% 10%)",
+        "tonalRamp": [
+          "hsl(210 14% 6%)",
+          "hsl(210 14% 10%)",
+          "hsl(210 14% 13%)",
+          "hsl(210 13% 17%)",
+          "hsl(210 12% 24%)",
+          "hsl(210 11% 36%)",
+          "hsl(210 12% 62%)",
+          "hsl(210 14% 94%)"
+        ]
+      },
+      "wash": {
+        "role": "neutral",
+        "displayName": "Hover Wash",
+        "canonical": "rgba(255, 255, 255, 0.025)",
+        "tonalRamp": [
+          "rgba(255,255,255,0.01)",
+          "rgba(255,255,255,0.02)",
+          "rgba(255,255,255,0.025)",
+          "rgba(255,255,255,0.04)",
+          "rgba(255,255,255,0.06)",
+          "rgba(255,255,255,0.08)",
+          "rgba(255,255,255,0.12)",
+          "rgba(255,255,255,0.18)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Panel Hairline",
+        "canonical": "rgba(255, 255, 255, 0.07)",
+        "tonalRamp": [
+          "rgba(255,255,255,0.04)",
+          "rgba(255,255,255,0.06)",
+          "rgba(255,255,255,0.07)",
+          "rgba(255,255,255,0.10)",
+          "rgba(255,255,255,0.15)",
+          "rgba(255,255,255,0.22)",
+          "rgba(255,255,255,0.32)",
+          "rgba(255,255,255,0.45)"
+        ]
+      },
+      "hairline-strong": {
+        "role": "neutral",
+        "displayName": "Structural Hairline",
+        "canonical": "hsl(210 24% 72% / 0.16)",
+        "tonalRamp": [
+          "hsl(210 24% 72% / 0.08)",
+          "hsl(210 24% 72% / 0.12)",
+          "hsl(210 24% 72% / 0.16)",
+          "hsl(210 24% 72% / 0.22)",
+          "hsl(210 24% 72% / 0.3)",
+          "hsl(210 24% 72% / 0.45)",
+          "hsl(210 24% 72% / 0.65)",
+          "hsl(210 24% 72% / 0.9)"
+        ]
+      },
+      "block": {
+        "role": "neutral",
+        "displayName": "Block Fill",
+        "canonical": "hsl(210 24% 72% / 0.08)",
+        "tonalRamp": [
+          "hsl(210 24% 72% / 0.04)",
+          "hsl(210 24% 72% / 0.06)",
+          "hsl(210 24% 72% / 0.08)",
+          "hsl(210 24% 72% / 0.12)",
+          "hsl(210 24% 72% / 0.18)",
+          "hsl(210 24% 72% / 0.28)",
+          "hsl(210 24% 72% / 0.42)",
+          "hsl(210 24% 72% / 0.6)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Text Full",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "rgba(255,255,255,0.15)",
+          "rgba(255,255,255,0.25)",
+          "rgba(255,255,255,0.4)",
+          "rgba(255,255,255,0.5)",
+          "rgba(255,255,255,0.7)",
+          "rgba(255,255,255,0.8)",
+          "rgba(255,255,255,0.9)",
+          "#ffffff"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Signal Cyan",
+        "canonical": "hsl(192 98% 55%)",
+        "tonalRamp": [
+          "hsl(192 60% 18%)",
+          "hsl(192 70% 28%)",
+          "hsl(192 80% 38%)",
+          "hsl(192 90% 46%)",
+          "hsl(192 98% 55%)",
+          "hsl(192 96% 66%)",
+          "hsl(192 92% 78%)",
+          "hsl(192 88% 90%)"
+        ]
+      },
+      "accent-text": {
+        "role": "primary",
+        "displayName": "Signal Cyan Soft",
+        "canonical": "hsl(192 98% 78%)",
+        "tonalRamp": [
+          "hsl(192 60% 24%)",
+          "hsl(192 72% 36%)",
+          "hsl(192 82% 48%)",
+          "hsl(192 90% 58%)",
+          "hsl(192 96% 70%)",
+          "hsl(192 98% 78%)",
+          "hsl(192 96% 86%)",
+          "hsl(192 90% 94%)"
+        ]
+      },
+      "link": {
+        "role": "primary",
+        "displayName": "Signal Cyan Link",
+        "canonical": "hsl(192 90% 62%)",
+        "tonalRamp": [
+          "hsl(192 55% 20%)",
+          "hsl(192 65% 30%)",
+          "hsl(192 75% 42%)",
+          "hsl(192 84% 52%)",
+          "hsl(192 90% 62%)",
+          "hsl(192 92% 72%)",
+          "hsl(192 90% 82%)",
+          "hsl(192 86% 92%)"
+        ]
+      },
+      "halo": {
+        "role": "primary",
+        "displayName": "Reading Halo",
+        "canonical": "hsl(192 98% 55% / 0.07)",
+        "tonalRamp": [
+          "hsl(192 98% 55% / 0.03)",
+          "hsl(192 98% 55% / 0.05)",
+          "hsl(192 98% 55% / 0.07)",
+          "hsl(192 98% 55% / 0.1)",
+          "hsl(192 98% 55% / 0.14)",
+          "hsl(192 98% 55% / 0.2)",
+          "hsl(192 98% 55% / 0.28)",
+          "hsl(192 98% 55% / 0.4)"
+        ]
+      },
+      "code-text": {
+        "role": "primary",
+        "displayName": "Code Cyan",
+        "canonical": "hsl(192 60% 74%)",
+        "tonalRamp": [
+          "hsl(192 45% 22%)",
+          "hsl(192 50% 32%)",
+          "hsl(192 55% 44%)",
+          "hsl(192 58% 56%)",
+          "hsl(192 60% 68%)",
+          "hsl(192 62% 74%)",
+          "hsl(192 60% 84%)",
+          "hsl(192 55% 93%)"
+        ]
+      },
+      "text-strong": {
+        "role": "neutral",
+        "displayName": "Text Strong",
+        "canonical": "rgba(255, 255, 255, 0.9)",
+        "tonalRamp": [
+          "rgba(255,255,255,0.4)",
+          "rgba(255,255,255,0.5)",
+          "rgba(255,255,255,0.66)",
+          "rgba(255,255,255,0.8)",
+          "rgba(255,255,255,0.9)",
+          "rgba(255,255,255,0.94)",
+          "rgba(255,255,255,0.97)",
+          "#ffffff"
+        ]
+      },
+      "text-meta": {
+        "role": "neutral",
+        "displayName": "Text Meta",
+        "canonical": "rgba(255, 255, 255, 0.55)",
+        "tonalRamp": [
+          "rgba(255,255,255,0.3)",
+          "rgba(255,255,255,0.4)",
+          "rgba(255,255,255,0.5)",
+          "rgba(255,255,255,0.55)",
+          "rgba(255,255,255,0.64)",
+          "rgba(255,255,255,0.74)",
+          "rgba(255,255,255,0.86)",
+          "#ffffff"
+        ]
+      },
+      "text-ghost": {
+        "role": "neutral",
+        "displayName": "Text Ghost (decorative only)",
+        "canonical": "rgba(255, 255, 255, 0.35)",
+        "tonalRamp": [
+          "rgba(255,255,255,0.12)",
+          "rgba(255,255,255,0.2)",
+          "rgba(255,255,255,0.28)",
+          "rgba(255,255,255,0.35)",
+          "rgba(255,255,255,0.44)",
+          "rgba(255,255,255,0.56)",
+          "rgba(255,255,255,0.7)",
+          "rgba(255,255,255,0.85)"
+        ]
+      },
+      "amb-cyan": {
+        "displayName": "Ambient Cyan (top light)",
+        "role": "背景氛围光 · 顶部主光",
+        "canonical": "hsl(192 98% 55% / 0.2)",
+        "tonalRamp": [
+          "hsl(192 98% 55% / 0.2)",
+          "hsl(192 98% 55% / 0.2)",
+          "hsl(192 98% 55% / 0.2)",
+          "hsl(192 98% 55% / 0.2)",
+          "hsl(192 98% 55% / 0.2)",
+          "hsl(192 98% 55% / 0.2)",
+          "hsl(192 98% 55% / 0.2)",
+          "hsl(192 98% 55% / 0.2)"
+        ],
+        "note": "仅 .sitebg 背景层使用；氛围光不参与前景信息编码（Ambient Field Rule）"
+      },
+      "amb-indigo": {
+        "displayName": "Ambient Indigo (upper right)",
+        "role": "背景氛围光 · 右上冷侧",
+        "canonical": "hsl(226 72% 58% / 0.16)",
+        "tonalRamp": [
+          "hsl(226 72% 58% / 0.16)",
+          "hsl(226 72% 58% / 0.16)",
+          "hsl(226 72% 58% / 0.16)",
+          "hsl(226 72% 58% / 0.16)",
+          "hsl(226 72% 58% / 0.16)",
+          "hsl(226 72% 58% / 0.16)",
+          "hsl(226 72% 58% / 0.16)",
+          "hsl(226 72% 58% / 0.16)"
+        ],
+        "note": "仅 .sitebg 背景层使用；氛围光不参与前景信息编码（Ambient Field Rule）"
+      },
+      "amb-teal": {
+        "displayName": "Ambient Teal (upper left)",
+        "role": "背景氛围光 · 左上呼应",
+        "canonical": "hsl(170 68% 46% / 0.12)",
+        "tonalRamp": [
+          "hsl(170 68% 46% / 0.12)",
+          "hsl(170 68% 46% / 0.12)",
+          "hsl(170 68% 46% / 0.12)",
+          "hsl(170 68% 46% / 0.12)",
+          "hsl(170 68% 46% / 0.12)",
+          "hsl(170 68% 46% / 0.12)",
+          "hsl(170 68% 46% / 0.12)",
+          "hsl(170 68% 46% / 0.12)"
+        ],
+        "note": "仅 .sitebg 背景层使用；氛围光不参与前景信息编码（Ambient Field Rule）"
+      },
+      "amb-warm": {
+        "displayName": "Ambient Warm (lower left)",
+        "role": "背景氛围光 · 左下暖光",
+        "canonical": "hsl(28 78% 56% / 0.09)",
+        "tonalRamp": [
+          "hsl(28 78% 56% / 0.09)",
+          "hsl(28 78% 56% / 0.09)",
+          "hsl(28 78% 56% / 0.09)",
+          "hsl(28 78% 56% / 0.09)",
+          "hsl(28 78% 56% / 0.09)",
+          "hsl(28 78% 56% / 0.09)",
+          "hsl(28 78% 56% / 0.09)",
+          "hsl(28 78% 56% / 0.09)"
+        ],
+        "note": "仅 .sitebg 背景层使用；氛围光不参与前景信息编码（Ambient Field Rule）"
+      },
+      "amb-vignette": {
+        "displayName": "Ambient Vignette",
+        "role": "背景氛围光 · 四角暗角",
+        "canonical": "hsl(210 26% 3% / 0.62)",
+        "tonalRamp": [
+          "hsl(210 26% 3% / 0.62)",
+          "hsl(210 26% 3% / 0.62)",
+          "hsl(210 26% 3% / 0.62)",
+          "hsl(210 26% 3% / 0.62)",
+          "hsl(210 26% 3% / 0.62)",
+          "hsl(210 26% 3% / 0.62)",
+          "hsl(210 26% 3% / 0.62)",
+          "hsl(210 26% 3% / 0.62)"
+        ],
+        "note": "仅 .sitebg 背景层使用；氛围光不参与前景信息编码（Ambient Field Rule）"
+      },
+      "amb-cyan-soft": {
+        "displayName": "Ambient Cyan Soft (lower right)",
+        "role": "背景氛围光 · 右下淡青",
+        "canonical": "hsl(192 90% 50% / 0.07)",
+        "tonalRamp": [
+          "hsl(192 90% 50% / 0.07)",
+          "hsl(192 90% 50% / 0.07)",
+          "hsl(192 90% 50% / 0.07)",
+          "hsl(192 90% 50% / 0.07)",
+          "hsl(192 90% 50% / 0.07)",
+          "hsl(192 90% 50% / 0.07)",
+          "hsl(192 90% 50% / 0.07)",
+          "hsl(192 90% 50% / 0.07)"
+        ],
+        "note": "仅 .sitebg 背景层；与右上靛青成对角（Ambient Field Rule）"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "仅首页标题；2.85rem / 600 / 1.15 / -0.025em，配 .text-sheen。"
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "列表页与文章页 h1；2.1rem（文章 2.2rem）/ 600。"
+      },
+      "title": {
+        "displayName": "List Title",
+        "purpose": "列表行标题；17px / 500，悬停提亮到纯白。"
+      },
+      "body": {
+        "displayName": "Reading Body",
+        "purpose": "Markdown 正文；16px / 1.8 / 80% 白。"
+      },
+      "label": {
+        "displayName": "Eyebrow",
+        "purpose": "10px / 0.3em / 大写 / 35% 白，永不承担正文信息。"
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "11px / tabular-nums，日期、计数、共 N 篇。"
+      },
+      "mono": {
+        "displayName": "Code",
+        "purpose": "代码块 14px / 1.6；行内代码 0.875em。"
+      },
+      "headline-mobile": {
+        "displayName": "Headline Mobile",
+        "purpose": "文章标题 <640px 降级档，1.9rem / 600。"
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "面板副标题与简介，15px / 1.7。"
+      },
+      "meta-sm": {
+        "displayName": "Meta Small",
+        "purpose": "文章页元信息行，12px。"
+      },
+      "prose-h1": {
+        "displayName": "Prose H1",
+        "purpose": "Markdown h1，1.6rem / 700，带下方发丝线。"
+      },
+      "prose-h2": {
+        "displayName": "Prose H2",
+        "purpose": "Markdown h2，1.35rem / 700。"
+      },
+      "prose-h3": {
+        "displayName": "Prose H3",
+        "purpose": "Markdown h3，1.15rem / 700。"
+      },
+      "headline-article": {
+        "displayName": "Article Headline",
+        "purpose": "文章页 h1 桌面档，2.2rem / 600 / -0.025em。"
+      }
+    },
+    "shadows": [],
+    "shadowsNote": "本系统不使用阴影。层次由三档表面亮度（#0f1214 / #121417 / #161a1d）与 1px 发丝线承担。",
+    "motion": [
+      {
+        "name": "ease-reveal",
+        "value": "cubic-bezier(0.2, 0.65, 0.3, 1)",
+        "purpose": ".reveal 入场：0.5s，从 opacity 0 / translateY(8px) / blur(4px) 到静止。"
+      },
+      {
+        "name": "ease-state",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "颜色与边框的状态过渡，300ms。"
+      },
+      {
+        "name": "spring-scroll",
+        "value": "stiffness 120 / damping 24 / restDelta 0.001",
+        "purpose": "阅读进度条跟随滚动。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "吸顶实心外壳，当前项用 20% 青底 + 青字标记。",
+      "html": "<header class=\"ds-nav\"><div class=\"ds-nav-inner\"><a class=\"ds-brand\" href=\"/\"><span class=\"ds-avatar\"></span>GUETSEC Wiki</a><nav class=\"ds-nav-links\"><a class=\"ds-nav-link ds-nav-link-active\" href=\"/posts/\">文章</a><a class=\"ds-nav-link\" href=\"/tags/\">标签</a></nav></div></header>",
+      "css": ".ds-nav{background:#121417;border-bottom:1px solid hsl(210 24% 72% / 0.08);} .ds-nav-inner{max-width:768px;margin:0 auto;height:57px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;} .ds-brand{display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:14px;font-weight:700;text-decoration:none;} .ds-avatar{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#1cd0fd,#0b2e3a);} .ds-nav-links{display:flex;gap:4px;} .ds-nav-link{font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;padding:6px 10px;border-radius:6px;transition:color .3s cubic-bezier(0.4,0,0.2,1),background-color .3s cubic-bezier(0.4,0,0.2,1);} .ds-nav-link:hover{color:#fff;background:hsl(210 24% 72% / 0.08);} .ds-nav-link:focus-visible{outline:1px solid #1cd0fd;outline-offset:2px;} .ds-nav-link-active{color:#1cd0fd;background:rgba(28,208,253,0.2);font-weight:500;}"
+    },
+    {
+      "name": "Reading Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "hero 与文章容器的平面浮层：16px 圆角、白 7% 边框、无阴影无模糊。",
+      "html": "<section class=\"ds-panel\"><p class=\"ds-eyebrow\">Writing</p><h1 class=\"ds-panel-title\">GUETSEC Wiki</h1><p class=\"ds-panel-sub\">团队知识库，收录 CTF 赛题复现、漏洞分析与攻防笔记。</p><dl class=\"ds-stats\"><div><dd>12</dd><dt>篇文章</dt></div><div><dd>26</dd><dt>个标签</dt></div></dl></section>",
+      "css": ".ds-panel{position:relative;overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,0.07);background:#161a1d;padding:40px;font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background-image:radial-gradient(130% 100% at 50% -40%,hsl(192 98% 55% / 0.1),transparent 62%);} .ds-eyebrow{margin:0;font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.5);} .ds-panel-title{margin:32px 0 0;font-size:45.6px;font-weight:600;line-height:1.15;letter-spacing:-0.025em;background-image:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.74));-webkit-background-clip:text;background-clip:text;color:transparent;} .ds-panel-sub{margin:20px 0 0;max-width:28rem;font-size:15px;line-height:1.7;color:rgba(255,255,255,0.55);} .ds-stats{display:flex;gap:40px;margin:40px 0 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.07);} .ds-stats dd{margin:0;font-size:20px;font-weight:500;line-height:1;color:rgba(255,255,255,0.85);font-variant-numeric:tabular-nums;} .ds-stats dt{margin-top:6px;font-size:11px;letter-spacing:0.02em;color:rgba(255,255,255,0.5);}"
+    },
+    {
+      "name": "Post List Row",
+      "kind": "custom",
+      "refersTo": "list-row",
+      "description": "书架式列表行：无卡片，靠上下发丝线与悬停 2.5% 白填充 + 左侧青线定位。",
+      "html": "<ul class=\"ds-list\"><li><a class=\"ds-row\" href=\"/posts/demo/\"><span class=\"ds-row-mark\"></span><div class=\"ds-row-head\"><h3>CTFshow 菜狗杯 WP</h3><time>2026.10.30</time></div><p class=\"ds-row-desc\">从信息收集到 getshell 的完整复现。</p><div class=\"ds-row-meta\"><span class=\"ds-cat\">Web</span><span class=\"ds-tag\">#sql注入</span></div></a></li></ul>",
+      "css": ".ds-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;} .ds-list li + li{border-top:1px solid rgba(255,255,255,0.06);} .ds-row{position:relative;display:block;padding:24px 12px;border-radius:8px;text-decoration:none;color:inherit;transition:background-color .3s cubic-bezier(0.4,0,0.2,1);} .ds-row:hover{background:rgba(255,255,255,0.025);} .ds-row:focus-visible{outline:1px solid #1cd0fd;outline-offset:-2px;} .ds-row-mark{position:absolute;left:0;top:20px;bottom:20px;width:1px;background:transparent;transition:background-color .3s;} .ds-row:hover .ds-row-mark{background:rgba(103,232,249,0.45);} .ds-row-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;} .ds-row-head h3{margin:0;font-size:17px;font-weight:500;line-height:1.375;color:rgba(255,255,255,0.9);transition:color .3s;} .ds-row:hover .ds-row-head h3{color:#fff;} .ds-row-head time{flex-shrink:0;font-size:11px;letter-spacing:0.02em;color:rgba(255,255,255,0.5);font-variant-numeric:tabular-nums;} .ds-row-desc{margin:8px 0 0;max-width:42rem;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,0.5);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;} .ds-row-meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;} .ds-cat{font-size:11px;letter-spacing:0.02em;color:rgba(165,243,252,0.55);text-decoration:none;} .ds-cat:hover{color:#cffafe;} .ds-tag{font-size:11px;letter-spacing:0.02em;color:rgba(255,255,255,0.5);text-decoration:none;} .ds-tag:hover{color:rgba(255,255,255,0.8);}"
+    },
+    {
+      "name": "Index Card (home masonry)",
+      "kind": "card",
+      "refersTo": "masonry-card",
+      "description": "首页瀑布流里的索引卡：12px 圆角、实心 --surface、1px 发丝线；可选 16:9 封面把卡片高度拉开，形成瀑布流参差。整卡可点而标签仍可单独点击。",
+      "html": "<div class=\"ds-masonry\"><article class=\"ds-card\"><img class=\"ds-card-cover\" src=\"/images/site-bg1.webp\" alt=\"\"><div class=\"ds-card-body\"><span class=\"ds-card-eyebrow\">CTFshow · 菜狗杯</span><h3 class=\"ds-card-title\"><a href=\"/posts/caigou-cup-writeup/\">菜狗杯WP</a></h3><p class=\"ds-card-desc\">CTFshow菜狗杯的WriteUp，记录 Web 方向各题的思路与最终利用链。</p><div class=\"ds-card-meta\"><time class=\"ds-card-date\">2025/09/30</time><ul class=\"ds-card-tags\"><li><a href=\"/tags/CTF/\">#CTF</a></li><li><a href=\"/tags/Web/\">#Web</a></li></ul></div></div></article><article class=\"ds-card\"><div class=\"ds-card-body\"><span class=\"ds-card-eyebrow\">Notes</span><h3 class=\"ds-card-title\"><a href=\"/posts/note/\">纯文字卡</a></h3><p class=\"ds-card-desc\">没有封面时卡片就矮下来，瀑布流的高度差由此而来。</p><div class=\"ds-card-meta\"><time class=\"ds-card-date\">2025/09/28</time></div></div></article></div>",
+      "css": ".ds-masonry{column-count:1;column-gap:16px;font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;} @media (min-width:640px){.ds-masonry{column-count:2;}} @media (min-width:1024px){.ds-masonry{column-count:3;}} .ds-card{display:flex;flex-direction:column;margin:0 0 16px;border:1px solid rgba(255,255,255,0.07);border-radius:12px;background:#161a1d;overflow:hidden;break-inside:avoid;transition:border-color .3s cubic-bezier(0.4,0,0.2,1);} .ds-card:hover{border-color:rgba(255,255,255,0.15);} .ds-card-cover{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid rgba(255,255,255,0.07);} .ds-card-body{display:flex;flex:1;flex-direction:column;padding:20px;} .ds-card-eyebrow{font-size:10px;line-height:1;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.5);} .ds-card-title{margin:12px 0 0;font-size:17px;font-weight:500;line-height:1.375;} .ds-card-title a{position:relative;color:rgba(255,255,255,0.9);text-decoration:none;transition:color .3s;} .ds-card-title a::after{content:'';position:absolute;inset:0;} .ds-card:hover .ds-card-title a{color:#fff;} .ds-card-title a:focus-visible{outline:1px solid #1cd0fd;outline-offset:2px;} .ds-card-desc{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;margin:8px 0 0;font-size:13.5px;line-height:1.7;color:rgba(255,255,255,0.5);} .ds-card-meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:16px 0 0;padding-top:16px;font-size:11px;line-height:1;} .ds-card-date{color:rgba(255,255,255,0.5);font-variant-numeric:tabular-nums;} .ds-card-tags{position:relative;z-index:20;display:flex;flex-wrap:wrap;gap:4px 10px;margin:0;padding:0;list-style:none;} .ds-card-tags a{color:rgba(255,255,255,0.5);text-decoration:none;transition:color .3s;} .ds-card-tags a:hover{color:rgba(255,255,255,0.8);}"
+    },
+    {
+      "name": "Prev / Next Card",
+      "kind": "card",
+      "refersTo": "prev-next-card",
+      "description": "文章末尾的发丝线导航卡，桌面两列，上一页靠右。",
+      "html": "<nav class=\"ds-pn\"><a class=\"ds-pn-card\" href=\"/posts/b/\"><span class=\"ds-pn-label\">← 下一篇</span><span class=\"ds-pn-title\">纵深防御下的内网渗透</span></a><a class=\"ds-pn-card ds-pn-right\" href=\"/posts/c/\"><span class=\"ds-pn-label\">上一篇 →</span><span class=\"ds-pn-title\">CISCN 2026 Web 复盘</span></a></nav>",
+      "css": ".ds-pn{display:grid;gap:12px;font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;} @media (min-width:640px){.ds-pn{grid-template-columns:1fr 1fr;}} .ds-pn-card{display:flex;flex-direction:column;gap:6px;padding:16px;border:1px solid rgba(255,255,255,0.07);border-radius:12px;background:#0f1214;text-decoration:none;transition:border-color .3s cubic-bezier(0.4,0,0.2,1),background-color .3s;} .ds-pn-card:hover{border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.025);} .ds-pn-card:focus-visible{outline:1px solid #1cd0fd;outline-offset:2px;} .ds-pn-label{font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.5);} .ds-pn-title{font-size:14px;color:rgba(255,255,255,0.7);} .ds-pn-right{text-align:right;}"
+    },
+    {
+      "name": "Reading Progress",
+      "kind": "custom",
+      "description": "1px 青线，scaleX 绑定滚动进度；只在文章页出现。",
+      "html": "<div class=\"ds-progress\" style=\"transform:scaleX(0.42)\"></div>",
+      "css": ".ds-progress{position:fixed;left:0;right:0;top:0;z-index:50;height:1px;transform-origin:0 50%;background:rgba(103,232,249,0.6);}"
+    },
+    {
+      "name": "Meta Separator",
+      "kind": "custom",
+      "description": "作者 · 日期 · 分类之间的中点分隔符，15% 白，10px 间距。",
+      "html": "<p class=\"ds-meta\">GUETSEC<span class=\"ds-meta-sep\">2026年10月30日</span><a class=\"ds-meta-sep\" href=\"/categories/web/\">Web</a></p>",
+      "css": ".ds-meta{margin:0;display:flex;flex-wrap:wrap;align-items:center;font-size:13.5px;color:rgba(255,255,255,0.5);font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;} .ds-meta-sep::before{content:'·';margin-right:0.625rem;margin-left:0;color:rgba(255,255,255,0.35);} .ds-meta a{color:rgba(255,255,255,0.5);text-decoration:none;} .ds-meta a:hover{color:#fff;}"
+    },
+    {
+      "name": "Article Side Rails",
+      "kind": "navigation",
+      "refersTo": "side-rails",
+      "description": "文章页 ≥1200px 的左右挂栏：左 = 全站文章概览（当前篇高亮），右 = markdown # 生成的目录（h1–h3，滚动高亮）。正文 768px 不变，栏 sticky 且超长内部滚动。",
+      "html": "<div class=\"ds-rails\"><aside class=\"ds-rail\"><p class=\"ds-rail-label\">分类</p><ul class=\"ds-rail-list\"><li><a class=\"ds-rail-active\" href=\"#\">入门</a></li><li><a href=\"#\">CTF</a></li></ul><p class=\"ds-rail-label\">入门</p><ul class=\"ds-rail-list\"><li><a href=\"#\">占位文章</a></li></ul></aside><article class=\"ds-rail-article\"><h1>文章标题</h1></article><aside class=\"ds-rail\"><p class=\"ds-rail-label\">目录</p><ul class=\"ds-toc\"><li><a class=\"ds-toc-active\" href=\"#\">占位正文</a></li></ul></aside></div>",
+      "css": ".ds-rails{display:grid;grid-template-columns:200px minmax(0,768px) 200px;gap:32px;justify-content:center;font-family:system-ui,-apple-system,'PingFang SC',sans-serif;} .ds-rail{font-size:13.5px;} .ds-rail>*{position:sticky;top:80px;} .ds-rail-label{margin:0 0 12px;font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.5);} .ds-rail-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;} .ds-rail-list a{color:rgba(255,255,255,0.5);text-decoration:none;transition:color .3s;} .ds-rail-list a:hover{color:rgba(255,255,255,0.8);} .ds-rail-active{color:#99e9f5!important;font-weight:500;} .ds-rail-article{border:1px solid rgba(255,255,255,0.07);border-radius:16px;background:#161a1d;padding:36px;} .ds-toc{margin:12px 0 0;padding:0;list-style:none;border-left:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;gap:4px;} .ds-toc a{display:block;padding:6px 8px 6px 14px;border-left:1px solid transparent;margin-left:-1px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color .3s;} .ds-toc-active{border-color:rgba(103,232,249,0.6)!important;color:#99e9f5!important;font-weight:500;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Reading Room",
+    "overview": "一套深色阅览室：房间近乎全黑，唯一的光是顶部一层极淡的青色天光；书架、索引卡与书桌都用同一种发丝线勾勒，不用玻璃、不用阴影、不用第二种颜色。读者进来是为了找到某一篇、然后安静读完，而不是被界面本身吸引。\n\n性格取「安静 · 精确 · 略冷」：文字是唯一的主角，界面元素退到 7% 白的线条与 2.5% 白的悬停填充里；青色只出现在「你现在在哪」「这篇属于哪类」「阅读进度」这三件事上。层级不靠模糊、不靠投影，只靠三档表面亮度（#0f1214 页面 / #121417 导航外壳 / #161a1d 浮层面板）与 1px 线条的边界。\n\n组件手感是「克制而精确」：控件形状几乎不变，悬停只微弱变亮；数字一律等宽对齐；标签小、紧、灰，只有分类与当前导航允许带色。整站只有深色一种状态，不设想浅色版本。",
+    "keyCharacteristics": [
+      "近纯黑底 (#0f1214) + 顶部单层 7% 青晕，全站唯一彩色背景",
+      "平面分层：无阴影、无 backdrop-filter、无玻璃拟态",
+      "单一青色强调 (#1cd0fd)，占屏面积 ≤10%，无第二色相",
+      "发丝线 1px（白 7% / 蓝灰 8%）承担所有边界，圆角 4–16px 分级",
+      "中文正文 16px / 行高 1.8，标题走白→灰白的 .text-sheen 微金属渐变"
+    ],
+    "rules": [
+      {
+        "name": "The One Voice Rule",
+        "body": "青色只用于「当前位置 / 分类归属 / 阅读进度」这三种信号，任何一屏的青色面积不超过 10%。它的稀有就是它的分量。",
+        "section": "colors"
+      },
+      {
+        "name": "The No Second Hue Rule",
+        "body": "前景与 UI（文字、边框、强调、链接、图标）除青色族外不引入任何色相；氛围光四色相（青/靛/青绿/暖）只属于 .sitebg 背景层。",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Job Rule",
+        "body": "无衬线只负责阅读，等宽只负责代码与数字。不用等宽做装饰性标题，不用无衬线做代码。",
+        "section": "typography"
+      },
+      {
+        "name": "The Small Label Rule",
+        "body": "一切 eyebrow 固定在 10px / 字距 0.3em / 大写 / 50% 白，永远不承担正文信息。",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "表面在静止态永远平面；层次 = 亮度档位 + 发丝线，不引入投影或模糊。",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Halo Rule",
+        "body": "背景彩色只有一层，从页面顶部向下消散；页面其余部分保持近纯黑，滚动到文章中部时不应再看到彩色。",
+        "section": "elevation"
+      },
+      {
+        "name": "The Readable Floor Rule",
+        "body": "任何承载信息的文字不低于 50% 白（#161a1d 上 5.2:1、#0f1214 上 5.3:1）；40% 与 35% 仅允许用于装饰性分隔符、列表序号与分隔线。",
+        "section": "colors"
+      },
+      {
+        "name": "The Ambient Field Rule",
+        "section": "colors",
+        "body": "背景氛围光是唯一允许多色相的层，两支持续运动的光：五向布光 26s 大幅漂移 + conic 光环 40s 旋转 / 12s 色相往复；上层静止暗角与颗粒收束视线。GPU transform/filter 实现，reduced-motion 静止，alpha ≤ 0.12，只做环境不做信息。"
+      }
+    ],
+    "dos": [
+      "Do 用三档亮度做层次：#0f1214 页面、#121417 导航外壳、#161a1d 浮层面板；同一屏最多出现这三档。",
+      "Do 用 1px 发丝线（白 7% / 蓝灰 8%）划分所有边界，悬停最多升到白 15%。",
+      "Do 把青色限制在导航当前项、分类链接、行悬停竖线、阅读进度四处。",
+      "Do 保证信息文字的对比度 ≥ 4.5:1（深色底上即 ≥50% 白）；装饰性分隔符与序号可降到 35–40%。",
+      "Do 数字一律 tabular-nums，日期与大写标签 11px，eyebrow 10px / 0.3em。",
+      "Do 正文保持 16px / 1.8，段落宽度落在 768px 容器内；长代码行允许 overflow-x 横向滚动。",
+      "Do 在 prefers-reduced-motion: reduce 下关闭 .reveal 与所有入场动画。",
+      "Do 声明 backdrop-filter 时只写无前缀版本：本仓构建链（lightningcss）遇到 -webkit-backdrop-filter 重复声明时会保留带前缀那条并丢掉无前缀那条，而 Chromium 不认 -webkit-backdrop-filter 的 CSS.supports，效果会静默失效。"
+    ],
+    "donts": [
+      "Don't 使用 box-shadow、backdrop-filter 或玻璃拟态：平面是本系统的身份，不是省钱。",
+      "Don't 引入第二色相（紫、橙、靛蓝）；历史 --accent: hsl(14 100% 57%) 与 --link: hsl(207 90% 54%) 已并入青色族。",
+      "Don't 用彩色渐变字或虹彩标题：标题渐变只能是 .text-sheen 的白 → 74% 白。",
+      "Don't 在悬停时改变几何（位移、缩放）：motion.div 会写入内联 transform，Tailwind 的 hover:-translate-y-* 永远不会生效。",
+      "Don't 把列表页做成卡片墙：/posts/ 是书架（发丝线清单），卡片墙只允许出现在首页的索引卡区。",
+      "Don't 用大于 16px 的圆角做容器，也不要用全圆角容器（药丸只允许出现在标签页的计数胶囊上）。"
+    ]
+  }
+}

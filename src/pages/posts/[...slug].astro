@@ -1,80 +1,186 @@
 ---
 import { getCollection, render } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
+import { ScrollProgress } from '../../components/magicui/scroll-progress';
+import { Toc } from '../../components/blog/Toc';
+import { formatDate } from '../../lib/posts';
+
+type NavItem = { id: string; title: string };
+type TocHeading = { depth: number; slug: string; text: string };
 
 export async function getStaticPaths() {
   const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
     (a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0),
   );
-  return posts.map((post, index) => ({
-    params: { slug: post.id },
-    props: { post, index, total: posts.length },
-  }));
+
+  return posts.map((post, index) => {
+    const neighbour = (entry?: CollectionEntry<'posts'>): NavItem | undefined =>
+      entry ? { id: entry.id, title: entry.data.title } : undefined;
+
+    return {
+      params: { slug: post.id },
+      props: {
+        post,
+        newer: neighbour(posts[index - 1]),
+        older: neighbour(posts[index + 1]),
+        allPosts: posts,
+      },
+    };
+  });
 }
 
 interface Props {
   post: CollectionEntry<'posts'>;
-  index: number;
-  total: number;
+  newer?: NavItem;
+  older?: NavItem;
+  allPosts: CollectionEntry<'posts'>[];
 }
 
-const { post, index, total } = Astro.props;
-const { Content } = await render(post);
+const { post, newer, older, allPosts } = Astro.props;
+const { Content, headings } = await render(post);
 const { title, author, date, tags, categories, description } = post.data;
-const prev = index > 0 ? (await getCollection('posts')).sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))[index - 1] : undefined;
-const next = index < total - 1 ? (await getCollection('posts')).sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))[index + 1] : undefined;
+// 目录：直接取 markdown 里 # / ## / ### 生成的标题（h1–h3），由渲染器给出 slug
+const toc: TocHeading[] = headings
+  .filter((h) => h.depth >= 1 && h.depth <= 3)
+  .map((h) => ({ depth: h.depth, slug: h.slug, text: h.text }));
 
-const fmt = (d?: Date) =>
-  d ? d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+const navLink =
+  'group rounded-xl border border-white/[0.07] p-4 transition-colors duration-300 hover:border-white/15 hover:bg-white/[0.025]';
+const navLabel = 'text-[10px] uppercase tracking-[0.28em] text-white/50';
+const sideLabel = 'text-[10px] font-medium uppercase tracking-[0.3em] text-white/50';
 ---
 
-<PageLayout title={`${title} · GUETSEC Wiki`} description={description}>
-  <article class="acrylic rounded-2xl px-6 py-8 sm:px-8">
-    <header class="mb-8 border-b border-[var(--block-border)] pb-6">
-      <h1 class="text-3xl font-bold leading-tight">{title}</h1>
-      <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-[var(--text-p3)]">
-        <span>✍️ {author}</span>
-        {date && <span>📅 <time datetime={date.toISOString()}>{fmt(date)}</time></span>}
-        {
-          categories.length > 0 && (
-            <span>
-              📁 {categories.map((c) => (
-                <a href={`/categories/${encodeURIComponent(c)}/`} class="hover:text-[var(--theme)]">{c}</a>
-              )).reduce((acc, el, i) => (i === 0 ? [el] : [...acc, ' / ', el]), [] as any[])}
-            </span>
-          )
-        }
+<PageLayout
+  title={`${title} · GUETSEC Wiki`}
+  description={description}
+  mainClass="min-[1200px]:max-w-[1264px]"
+>
+  <ScrollProgress client:load />
+
+  <div class="mx-auto grid w-full max-w-3xl min-[1200px]:max-w-[1232px] min-[1200px]:grid-cols-[200px_minmax(0,768px)_200px] min-[1200px]:gap-8">
+    <aside class="hidden min-[1200px]:block">
+      <div class="sticky top-20 space-y-7 text-[13.5px]">
+        <nav aria-label="全站文章">
+          <p class="flex items-baseline justify-between gap-2">
+            <span class={sideLabel}>全部文章</span>
+            <span class="text-[11px] tabular-nums text-white/50">{allPosts.length}</span>
+          </p>
+          <ul class="mt-3 max-h-[calc(100vh-12rem)] space-y-2 overflow-y-auto pr-1">
+            {
+              allPosts.map((entry) => {
+                const active = entry.id === post.id;
+                return (
+                  <li>
+                    <a
+                      href={`/posts/${entry.id}/`}
+                      aria-current={active ? 'page' : undefined}
+                      class:list={[
+                        'block leading-snug transition-colors duration-300',
+                        active
+                          ? 'font-medium text-cyan-200'
+                          : 'text-white/50 hover:text-white/80',
+                      ]}
+                    >
+                      {entry.data.title}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </nav>
       </div>
-      {
-        tags.length > 0 && (
-          <div class="mt-3 flex flex-wrap gap-2">
-            {tags.map((t) => (
+    </aside>
+
+    <div>
+      <article
+        class="relative overflow-hidden rounded-2xl border border-white/[0.07] bg-[hsl(210_14%_10%)]"
+      >
+        <header class="reveal px-6 pb-7 pt-9 sm:px-9 sm:pt-11">
+          <p class="text-[10px] uppercase tracking-[0.3em] text-white/50">WriteUp</p>
+          <h1 class="text-sheen mt-4 text-balance text-[1.9rem] font-semibold leading-[1.2] tracking-tight sm:text-[2.2rem]">
+            {title}
+          </h1>
+
+          <div class="mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[12px] text-white/55">
+            <span>{author}</span>
+            {
+              date && (
+                <time class="meta-sep tabular-nums" datetime={date.toISOString()}>
+                  {formatDate(date, 'long')}
+                </time>
+              )
+            }
+            {categories.map((category) => (
               <a
-                href={`/tags/${encodeURIComponent(t)}/`}
-                class="rounded-full border border-[var(--block-border)] bg-[var(--block)] px-2.5 py-0.5 text-xs text-[var(--text-p3)] hover:border-[var(--theme)] hover:text-[var(--theme)]"
+                href={`/categories/${encodeURIComponent(category)}/`}
+                class="meta-sep text-cyan-200/55 transition-colors hover:text-cyan-100"
               >
-                #{t}
+                {category}
               </a>
             ))}
           </div>
-        )
-      }
-    </header>
 
-    <div class="prose-post">
-      <Content />
+          {
+            tags.length > 0 && (
+              <div class="mt-4 flex flex-wrap items-center gap-x-3.5 gap-y-1">
+                {tags.map((tag) => (
+                  <a
+                    href={`/tags/${encodeURIComponent(tag)}/`}
+                    class="text-[11px] tracking-wide text-white/50 transition-colors hover:text-white/80"
+                  >
+                    #{tag}
+                  </a>
+                ))}
+              </div>
+            )
+          }
+        </header>
+
+        <div class="reveal reveal-delay-1 prose-post relative border-t border-white/[0.06] px-6 pb-9 pt-8 sm:px-9">
+          <Content />
+        </div>
+      </article>
+
+      <nav class="mt-8 grid gap-3 sm:grid-cols-2">
+        {
+          older ? (
+            <a href={`/posts/${older.id}/`} class={navLink}>
+              <span class={navLabel}>← 下一篇</span>
+              <p class="mt-2 text-sm text-white/70 transition-colors duration-300 group-hover:text-white">
+                {older.title}
+              </p>
+            </a>
+          ) : (
+            <span />
+          )
+        }
+        {
+          newer && (
+            <a href={`/posts/${newer.id}/`} class={`${navLink} sm:col-start-2 sm:text-right`}>
+              <span class={navLabel}>上一篇 →</span>
+              <p class="mt-2 text-sm text-white/70 transition-colors duration-300 group-hover:text-white">
+                {newer.title}
+              </p>
+            </a>
+          )
+        }
+      </nav>
+
+      <p class="mt-10 text-center">
+        <a
+          href="/posts/"
+          class="text-[11px] tracking-[0.2em] text-white/50 transition-colors hover:text-white/90"
+        >
+          ← 返回文章列表
+        </a>
+      </p>
     </div>
 
-    <nav class="mt-12 flex justify-between gap-4 border-t border-[var(--block-border)] pt-6 text-sm">
-      {
-        next && (
-          <a href={`/posts/${next.id}/`} class="text-[var(--theme)] hover:underline">
-            ← {next.data.title}
-          </a>
-        )
-      }
-      {prev && <a href={`/posts/${prev.id}/`} class="ml-auto text-right text-[var(--theme)] hover:underline">{prev.data.title} →</a>}
-    </nav>
-  </article>
+    <aside class="hidden min-[1200px]:block">
+      <div class="sticky top-20">
+        <Toc client:load headings={toc} />
+      </div>
+    </aside>
+  </div>
 </PageLayout>

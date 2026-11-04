@@ -13,9 +13,10 @@ categories:
   - CTFshow
   - 菜狗杯
 description: CTFshow菜狗杯的WriteUp
+cover: https://cdn.jsdelivr.net/gh/GUETSEC-wiki/Wiki_Photo@main/blog/Archback.png
+date: 2025-09-30
 toc: true
 ---
-date: 2025-09-30
 #拼接字符串
 # 我的眼里只有钱
 

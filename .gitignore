@@ -2,6 +2,9 @@
 dist/
 .astro/
 
+# agent tooling artifacts
+.pi/
+
 # dependencies
 node_modules/
 
@@ -20,3 +23,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# impeccable skill 的预编译二进制与大体积数据文件（只提交文本配置）
+.github/skills/impeccable/scripts/bin/
+.github/skills/impeccable/scripts/data/font-index.json

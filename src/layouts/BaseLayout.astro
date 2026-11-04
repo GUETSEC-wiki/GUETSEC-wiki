@@ -29,7 +29,9 @@ const site = Astro.site ?? new URL('https://wiki.guetsec.cn');
     <title>{title}</title>
   </head>
   <body class="min-h-screen flex flex-col">
-    <div class="sitebg" aria-hidden="true"></div>
+    <div class="sitebg" aria-hidden="true">
+      <div class="sitebg-aurora"></div>
+    </div>
     <slot />
   </body>
 </html>
