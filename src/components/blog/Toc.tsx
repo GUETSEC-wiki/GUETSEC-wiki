@@ -65,7 +65,7 @@ export function Toc({ headings }: { headings: TocHeading[] }) {
       <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-white/50">目录</p>
       <ul
         ref={listRef}
-        className="mt-3 max-h-[calc(100vh-12rem)] space-y-1 overflow-y-auto border-l border-white/[0.08]"
+        className="mt-3 max-h-[calc(100dvh-12rem)] space-y-1 overflow-y-auto border-l border-white/[0.08]"
       >
         {headings.map((h) => (
           <li key={h.slug}>

@@ -378,6 +378,10 @@
         "displayName": "Body Small",
         "purpose": "面板副标题与简介，15px / 1.7。"
       },
+      "body-narrow": {
+        "displayName": "Reading Body (narrow)",
+        "purpose": "Markdown 正文在 <640px 的档位；15px / 1.8。窄屏一行不足 20 字，16px 偏大。"
+      },
       "meta-sm": {
         "displayName": "Meta Small",
         "purpose": "文章页元信息行，12px。"
@@ -422,6 +426,18 @@
       {
         "name": "sm",
         "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1200px"
       }
     ]
   },
@@ -487,6 +503,14 @@
       "description": "文章页 ≥1200px 的左右挂栏：左 = 全站文章概览（当前篇高亮），右 = markdown # 生成的目录（h1–h3，滚动高亮）。正文 768px 不变，栏 sticky 且超长内部滚动。",
       "html": "<div class=\"ds-rails\"><aside class=\"ds-rail\"><p class=\"ds-rail-label\">分类</p><ul class=\"ds-rail-list\"><li><a class=\"ds-rail-active\" href=\"#\">入门</a></li><li><a href=\"#\">CTF</a></li></ul><p class=\"ds-rail-label\">入门</p><ul class=\"ds-rail-list\"><li><a href=\"#\">占位文章</a></li></ul></aside><article class=\"ds-rail-article\"><h1>文章标题</h1></article><aside class=\"ds-rail\"><p class=\"ds-rail-label\">目录</p><ul class=\"ds-toc\"><li><a class=\"ds-toc-active\" href=\"#\">占位正文</a></li></ul></aside></div>",
       "css": ".ds-rails{display:grid;grid-template-columns:200px minmax(0,768px) 200px;gap:32px;justify-content:center;font-family:system-ui,-apple-system,'PingFang SC',sans-serif;} .ds-rail{font-size:13.5px;} .ds-rail>*{position:sticky;top:80px;} .ds-rail-label{margin:0 0 12px;font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.5);} .ds-rail-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;} .ds-rail-list a{color:rgba(255,255,255,0.5);text-decoration:none;transition:color .3s;} .ds-rail-list a:hover{color:rgba(255,255,255,0.8);} .ds-rail-active{color:#99e9f5!important;font-weight:500;} .ds-rail-article{border:1px solid rgba(255,255,255,0.07);border-radius:16px;background:#161a1d;padding:36px;} .ds-toc{margin:12px 0 0;padding:0;list-style:none;border-left:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;gap:4px;} .ds-toc a{display:block;padding:6px 8px 6px 14px;border-left:1px solid transparent;margin-left:-1px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color .3s;} .ds-toc-active{border-color:rgba(103,232,249,0.6)!important;color:#99e9f5!important;font-weight:500;}"
+    },
+    {
+      "name": "Article TOC Drawer",
+      "description": "窄屏（<1200px）的文章目录：右下角 48px 浮动按钮打开底部抽屉（max-h 70dvh，y 100%→0，260ms）。条目与右栏目录同源同算法，当前小节青色高亮；打开时锁 body 滚动，Esc / 遮罩 / 点条目关闭。",
+      "kind": "overlay",
+      "refersTo": "toc-drawer",
+      "html": "<button class=\"ds-tocfab\" aria-label=\"打开目录\" aria-expanded=\"false\">\n  <svg class=\"ds-toctrigger-icon\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M2.5 4h11M2.5 8h11M2.5 12h7\"/></svg>\n</button>\n<div style=\"position:relative;height:360px;background:#0f1214\">\n  <button class=\"ds-drawer-mask\" aria-label=\"关闭目录\"></button>\n  <nav class=\"ds-drawer\" aria-label=\"文章目录\">\n    <div class=\"ds-drawer-head\">\n      <span class=\"ds-drawer-eyebrow\">目录</span>\n      <span class=\"ds-drawer-count\">12 节</span>\n      <button class=\"ds-drawer-close\" aria-label=\"关闭\">×</button>\n    </div>\n    <ul class=\"ds-drawer-list\">\n      <li class=\"ds-drawer-item\" data-active=\"true\" data-depth=\"1\" aria-current=\"location\">我的眼里只有钱</li>\n      <li class=\"ds-drawer-item\" data-depth=\"1\">抽老婆</li>\n      <li class=\"ds-drawer-item\" data-depth=\"2\">子标题示例</li>\n      <li class=\"ds-drawer-item\" data-depth=\"3\">三级标题示例</li>\n    </ul>\n  </nav>\n</div>",
+      "css": ".ds-tocfab{position:fixed;right:16px;bottom:20px;z-index:40;display:flex;height:48px;width:48px;align-items:center;justify-content:center;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:#161a1d;color:rgba(255,255,255,0.70)}\n.ds-tocfab:hover{border-color:rgba(255,255,255,0.25);color:#fff}\n.ds-toctrigger-icon{display:block;height:14px;width:14px}\n.ds-drawer-mask{position:absolute;inset:0;height:100%;width:100%;background:rgba(0,0,0,0.55);cursor:default}\n.ds-drawer{position:absolute;left:0;right:0;bottom:0;display:flex;max-height:70dvh;flex-direction:column;border-top-left-radius:16px;border-top-right-radius:16px;border-top:1px solid rgba(255,255,255,0.09);background:#121417;padding-bottom:env(safe-area-inset-bottom)}\n.ds-drawer-head{display:flex;align-items:baseline;justify-content:space-between;padding:16px 20px 8px}\n.ds-drawer-eyebrow{font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.50)}\n.ds-drawer-count{font-size:11px;font-variant-numeric:tabular-nums;color:rgba(255,255,255,0.50)}\n.ds-drawer-close{margin-right:-8px;display:flex;height:44px;width:44px;align-items:center;justify-content:center;border-radius:9999px;color:rgba(255,255,255,0.60)}\n.ds-drawer-list{margin-top:12px;flex:1;overflow-y:auto;padding-bottom:16px;list-style:none}\n.ds-drawer-item{display:flex;min-height:44px;align-items:center;border-left:1px solid transparent;padding-left:12px;font-size:14px;color:rgba(255,255,255,0.55)}\n.ds-drawer-item:hover{color:rgba(255,255,255,0.85)}\n.ds-drawer-item[data-active=\"true\"]{border-left-color:rgba(103,232,249,0.60);font-weight:500;color:#a5f3fc}\n.ds-drawer-item[data-depth=\"2\"]{padding-left:26px}\n.ds-drawer-item[data-depth=\"3\"]{padding-left:40px;font-size:12px}"
     }
   ],
   "narrative": {
@@ -527,7 +551,7 @@
       },
       {
         "name": "The One Halo Rule",
-        "body": "背景彩色只有一层，从页面顶部向下消散；页面其余部分保持近纯黑，滚动到文章中部时不应再看到彩色。",
+        "body": "彩色只属于背景那一层，且只从页面顶部进入；前景与 UI 永远只有青色族（见 Ambient Field Rule）。滚动到文章中部时视觉重心必须回到近纯黑与文字，四角暗角用黑色压暗边缘收束视线。",
         "section": "elevation"
       },
       {
@@ -539,6 +563,16 @@
         "name": "The Ambient Field Rule",
         "section": "colors",
         "body": "背景氛围光是唯一允许多色相的层，两支持续运动的光：五向布光 26s 大幅漂移 + conic 光环 40s 旋转 / 12s 色相往复；上层静止暗角与颗粒收束视线。GPU transform/filter 实现，reduced-motion 静止，alpha ≤ 0.12，只做环境不做信息。"
+      },
+      {
+        "name": "The Add-Columns Rule",
+        "body": "所有栅格在基础态就是单列（grid-cols-1），响应式只做「加列」不做「减列」；显式列宽只写在 min-[1200px] 分支。否则隐式单列轨道按内容固有宽度撑开，长代码行会把整页推出视口。",
+        "section": "layout"
+      },
+      {
+        "name": "The Touch Target Rule",
+        "body": "窄屏一切可点区域不小于 44px（min-h-11）；只用 max-sm: 补足，桌面像素零变化。",
+        "section": "layout"
       }
     ],
     "dos": [

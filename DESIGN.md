@@ -90,6 +90,12 @@ typography:
     fontWeight: 400
     lineHeight: 1.7
     letterSpacing: "0em"
+  body-narrow:
+    fontFamily: "system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"
+    fontSize: "15px"
+    fontWeight: 400
+    lineHeight: 1.8
+    letterSpacing: "0em"
   meta-sm:
     fontFamily: "system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"
     fontSize: "12px"
@@ -253,7 +259,15 @@ components:
 
 统计条不使用卡片：`border-t` 一条发丝线下面直接排 `dl`，数字 20px `tabular-nums`，标签 11px / 50% 白，`最近更新` 靠右（`ml-auto`）。
 
-响应式只有两档：`sm` (640px) 放开面板内边距与标题字号（display 45.6 → 桌面；移动端 36px 由 `text-4xl` 承接），其余尺寸沿用。移动端实测 375px 宽无横向溢出。
+### Responsive
+
+三档断点，职责互不重叠：
+
+- **<640px（`max-sm`）** —— 触控优先。正文降到 15px / 1.8（`body-narrow`），表格改为块级横向滚动容器，分类 / 标签 / 返回链接的点击区提到 44px（`min-h-11` 并用负外边距抵消内边距，视觉排版不变）。
+- **≥640px（`sm`）** —— 放开面板内边距（`px-6 py-12` → `px-10 py-14`、`px-9 py-11`）与标题字号（display 2.85rem、列表 2.1rem、文章标题 2.2rem），正文回到 16px / 1.8，瀑布流由 1 列变 2 列，上/下一篇由 1 列变 2 列。
+- **≥1200px** —— 挂出 200px 侧栏（见 Article Side Rails），瀑布流在 ≥1024px 时先到 3 列。
+
+所有栅格容器必须在**基础态**声明单列（`grid-cols-1`），只在 `min-[1200px]` 分支写显式列宽；否则隐式单列轨道按内容固有宽度撑开，长代码行会把整页推出视口。移动端实测 375px 宽无横向溢出。
 
 ## Elevation & Depth
 
@@ -304,9 +318,9 @@ components:
 - **Click model:** 标题链接用 `after:absolute after:inset-0` 铺满整张卡；标签行 `relative z-20` 浮在其上，保证标签仍可单独点击。
 
 ### Article Side Rails (≥1200px)
-- **Left rail:** 200px；「全部文章」眉标（10px / 0.3em / 50% 白）+ 篇数，下面是按时间倒序的全站文章列表（当前篇 `text-cyan-200 font-medium` + `aria-current="page"`，其余 50% 白悬停 80%），列表最高 `calc(100vh - 12rem)` 内部滚动。sticky top-20。
+- **Left rail:** 200px；「全部文章」眉标（10px / 0.3em / 50% 白）+ 篇数，下面是按时间倒序的全站文章列表（当前篇 `text-cyan-200 font-medium` + `aria-current="page"`，其余 50% 白悬停 80%），列表最高 `calc(100dvh - 12rem)` 内部滚动。sticky top-20。
 - **Right rail:** 200px 目录，条目直接来自 markdown 的 `#` / `##` / `###`（h1–h3）；条目 13.5px（三级 12px），左缘 1px 白 8% 轨道线，缩进每级 12px；当前小节 `border-cyan-300/60 text-cyan-200 font-medium`，其余 50% 白。滚动高亮由 rAF 节流的滚动计算驱动（island `Toc.tsx`，按「最后一个越过阅读线的标题」判定，长目录自动内部滚动跟随）。sticky top-20。
-- **缺席行为：** <1200px 两栏隐藏，正文回到 768px 单栏；文章无 h2/h3 时右栏不渲染。
+- **缺席行为：** <1200px 两栏隐藏，正文回到 768px 单栏；此时目录改由右下角 48px 浮动按钮打开底部抽屉（见 Article TOC Drawer），因此目录在窄屏不会消失。文章没有 h1–h3 时右栏与浮动按钮都不渲染。
 
 ### Tag / Category Links
 - **Style:** 无底色、无边框的纯文字链接（列表行）；分类页与标签页保留 8% 填充 + 全圆角计数胶囊（历史页面，未随博客三页统一）。
@@ -316,6 +330,13 @@ components:
 - **Shape:** 12px 圆角、1px 白 7% 边框、`--ink` 底、16px 内边距，桌面两列（`sm:grid-cols-2`，上一篇靠右列）。
 - **Label:** 10px / 0.28em 大写的 `上一篇 / 下一篇`，50% 白；标题 14–15px（70% 白，悬停纯白）。
 - **Hover:** 边框升到白 15% + 2.5% 白填充。
+
+### Article TOC Drawer (<1200px)
+- **Trigger:** 48px 圆形浮动按钮，距右下 16 / 20px，`min-[1200px]:hidden`；1px 白 12% 边框 + `--surface` 实心底，图标 3 条横线，`aria-label="打开目录"` + `aria-expanded`。≥1200px 整体不渲染（右栏已常驻），所以 768–1199px 这一段同样由它承担目录。
+- **Panel:** 底部抽屉 `max-h: 70dvh`，上方 16px 圆角、顶部 1px 白 9% 线、`--chrome` 底，下沿补 `env(safe-area-inset-bottom)`；`y: 100% → 0`，260ms `cubic-bezier(0.2, 0.65, 0.3, 1)`，遮罩 55% 黑 200ms 淡入。
+- **Header:** `目录` eyebrow + 节数（11px `tabular-nums` / 50% 白）+ 44px 关闭按钮；Esc 与点击遮罩同样关闭，打开时锁 `body` 滚动。
+- **Items:** 与右栏同源同算法（rAF 节流阅读线 120px），条目 `min-h-11`、14px（三级 12px）、每级缩进 14px，左缘 1px 轨道线；当前小节 `border-cyan-300/60 text-cyan-200 font-medium` + `aria-current="location"`。点击条目关闭抽屉并跳转。
+- **Anchor offset:** `.prose-post` 标题统一 `scroll-margin-top: 5rem`，跳转后标题停在 58px 吸顶导航下方。
 
 ### Reading Progress
 - **Style:** 1px 高、`cyan-300/60`、固定在视口顶部的进度条，`scaleX` 由滚动进度驱动（`useSpring` stiffness 120 / damping 24）。
@@ -336,6 +357,8 @@ components:
 - **Do** 正文保持 16px / 1.8，段落宽度落在 768px 容器内；长代码行允许 `overflow-x` 横向滚动。
 - **Do** 引用块用 1px `--border-strong` 左线 + `--block` 填充表达，不用粗色条。
 - **Do** 在 `prefers-reduced-motion: reduce` 下关闭 `.reveal` 与所有入场动画。
+- **Do** 保证窄屏可点区域至少 44px（`min-h-11`）；只对 `<640px` 用 `max-sm:` 补足，避免桌面像素漂移。
+- **Do** 让所有栅格在基础态就是单列（`grid-cols-1`），响应式只做「加列」，不做「减列」。
 - **Do** 声明 `backdrop-filter` 时只写无前缀版本：本仓构建链（lightningcss）遇到 `-webkit-backdrop-filter` 重复声明时会保留带前缀那条并丢掉无前缀那条，而 Chromium 不认 `-webkit-backdrop-filter` 的 `CSS.supports`，效果会静默失效。
 
 ### Don't:

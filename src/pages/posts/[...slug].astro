@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import { ScrollProgress } from '../../components/magicui/scroll-progress';
 import { Toc } from '../../components/blog/Toc';
+import { TocFab } from '../../components/blog/TocFab';
 import { formatDate } from '../../lib/posts';
 
 type NavItem = { id: string; title: string };
@@ -57,7 +58,9 @@ const sideLabel = 'text-[10px] font-medium uppercase tracking-[0.3em] text-white
 >
   <ScrollProgress client:load />
 
-  <div class="mx-auto grid w-full max-w-3xl min-[1200px]:max-w-[1232px] min-[1200px]:grid-cols-[200px_minmax(0,768px)_200px] min-[1200px]:gap-8">
+  <div
+    class="mx-auto grid w-full max-w-3xl grid-cols-1 min-[1200px]:max-w-[1232px] min-[1200px]:grid-cols-[200px_minmax(0,768px)_200px] min-[1200px]:gap-8"
+  >
     <aside class="hidden min-[1200px]:block">
       <div class="sticky top-20 space-y-7 text-[13.5px]">
         <nav aria-label="全站文章">
@@ -65,7 +68,7 @@ const sideLabel = 'text-[10px] font-medium uppercase tracking-[0.3em] text-white
             <span class={sideLabel}>全部文章</span>
             <span class="text-[11px] tabular-nums text-white/50">{allPosts.length}</span>
           </p>
-          <ul class="mt-3 max-h-[calc(100vh-12rem)] space-y-2 overflow-y-auto pr-1">
+          <ul class="mt-3 max-h-[calc(100dvh-12rem)] space-y-2 overflow-y-auto pr-1">
             {
               allPosts.map((entry) => {
                 const active = entry.id === post.id;
@@ -114,7 +117,7 @@ const sideLabel = 'text-[10px] font-medium uppercase tracking-[0.3em] text-white
             {categories.map((category) => (
               <a
                 href={`/categories/${encodeURIComponent(category)}/`}
-                class="meta-sep text-cyan-200/55 transition-colors hover:text-cyan-100"
+                class="meta-sep text-cyan-200/55 transition-colors hover:text-cyan-100 max-sm:-mx-2 max-sm:inline-flex max-sm:min-h-11 max-sm:items-center max-sm:px-2"
               >
                 {category}
               </a>
@@ -127,7 +130,7 @@ const sideLabel = 'text-[10px] font-medium uppercase tracking-[0.3em] text-white
                 {tags.map((tag) => (
                   <a
                     href={`/tags/${encodeURIComponent(tag)}/`}
-                    class="text-[11px] tracking-wide text-white/50 transition-colors hover:text-white/80"
+                    class="text-[11px] tracking-wide text-white/50 transition-colors hover:text-white/80 max-sm:-mx-2 max-sm:inline-flex max-sm:min-h-11 max-sm:items-center max-sm:px-2"
                   >
                     #{tag}
                   </a>
@@ -170,7 +173,7 @@ const sideLabel = 'text-[10px] font-medium uppercase tracking-[0.3em] text-white
       <p class="mt-10 text-center">
         <a
           href="/posts/"
-          class="text-[11px] tracking-[0.2em] text-white/50 transition-colors hover:text-white/90"
+          class="text-[11px] tracking-[0.2em] text-white/50 transition-colors hover:text-white/90 max-sm:inline-flex max-sm:min-h-11 max-sm:items-center max-sm:px-2"
         >
           ← 返回文章列表
         </a>
@@ -183,4 +186,7 @@ const sideLabel = 'text-[10px] font-medium uppercase tracking-[0.3em] text-white
       </div>
     </aside>
   </div>
+
+  <!-- 窄屏没有右栏，目录改由右下角浮动按钮打开抽屉 -->
+  <TocFab client:load headings={toc} />
 </PageLayout>
